@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | QR code component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family= Outfit: wght @100;400;700 & display=swap');
+
+    legend {
+      text-align: center;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 25px;
+      margin: 10px;
+      background-color: white;
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    :root {
+      --bg-color: rgb(213 225 239);
+      --color1: rgb(53 63 82);
+      --color2: rgb(188 190 200);
+    }
+
+    body {
+      background-color: var(--bg-color);
+    }
+
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+
+    .container {
+      width: 100%;
+      height: calc(100vh - 46px);
+      display: grid;
+      place-content: center;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .wrapper {
+      width: 270px;
+      height: auto;
+      border-radius: 20px;
+      padding: 20px;
+      background-color: white;
+    }
+
+    .wrapper h1 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      text-align: center;
+      color: var(--color1);
+    }
+
+    .wrapper p {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 400;
+      text-align: center;
+      font-size: 15px;
+      color: var(--color2);
+    }
+
+    .resolution-btn {
+      width: 50%;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      margin-top: 20px;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      cursor: pointer;
+    }
+
+    .modal {
+      display: none;
+    }
+
+    .modal-open {
+      display: block;
+    }
+
+    .btns-modal {
+      height: 100vh;
+      width: 100%;
+      position: fixed;
+      z-index: 2;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(216, 216, 255, 0.3);
+    }
+
+    .btns-modal button {
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      background-color: white;
+      color: black;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 19px;
+      cursor: pointer;
+      transition: .5s;
+    }
+
+    .btns-modal button:hover {
+      transform: scale(1.1);
+    }
+
+    .html-image {
+      width: 80%;
+      overflow-x: scroll;
+      height: 100vh;
+      position: fixed;
+      z-index: 3;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -33%);
+    }
+
+    .css-content {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      place-content: center;
+      height: 80vh;
+      border-radius: 20px;
+      overflow: scroll;
+      overflow-x: hidden;
+      width: 80%;
+      gap: 20px;
+      position: fixed;
+      z-index: 3;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      
+    }
+
+    .css-content {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .html-image,
+    .css-content,
+    .images {
+      display: none;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        overflow-x: hidden;
+      }
+
+      .wrapper {
+        width: 100%;
+        max-width: 85%;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  Improve your front-end skills by building projects
+
+  Scan the QR code to visit Frontend Mentor and take your coding skills to the next level
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#sobre-mim">Pablo Eduardo</a>.
+  </div>
+
+  <div class="container">
+    <div class="wrapper">
+      <div class="qr-code">
+        <img src="./images/image-qr-code.png">
+      </div>
+      <h1>Improve your front-end skills by building projects</h1>
+      <p>Scan the QR code to visit Frontend Mentor and take your coding skills to the next level</p>
+    </div>
+
+    <button class="resolution-btn">View resolution</button>
+
+  </div>
+
+  <div class="modal">
+    <div class="btns-modal">
+      <button class="html-btn">HTML</button>
+      <button class="css-btn">CSS</button>
+      <button class="close-modal">CLOSE</button>
+    </div>
+  </div>
+  <div class="html-image">
+    <legend>HTML</legend>
+    <img src="./images/code-resolution-html.png">
+    <p id="closeHTML" style="text-align: center; cursor: pointer; background-color: white; padding: 5px; border-radius: 5px 10px; max-width: 15px; margin: auto; margin-top: 10px; color: black; font-family: 'Outfit', sans-serif; font-weight: 700;">X</p>
+  </div>
+  <div class="css-content">
+    <div class="css-image">
+      <legend>CSS</legend>
+      <img src="./images/code-resolution-css.png">
+    </div>
+    <div class="media-query">
+      <legend>MediaQuery</legend>
+      <img src="./images/code-resolution-mediaQuery.png">
+    </div>
+    <p id="closeCSS" style="text-align: center; cursor: pointer; background-color: white; padding: 5px; border-radius: 5px 10px; max-width: 15px; margin: auto; margin-top: 10px; color: black; font-family: 'Outfit', sans-serif; font-weight: 700;">X</p>
+  </div>
+
+  <script>
+    const resolutionButton = document.querySelector('.resolution-btn')
+    const modal = document.querySelector('.modal')
+    const closeModal = document.querySelector('.close-modal')
+    const htmlButton = document.querySelector('.html-btn')
+    const cssButton = document.querySelector('.css-btn')
+    const html = document.querySelector('.html-image')
+    const css = document.querySelector('.css-content')
+    const cssContent = document.querySelector('.css-content')
+    const closeHTML = document.getElementById('closeHTML')
+
+    function modalOpenClose() {
+      modal.classList.toggle('modal-open')
+    }
+
+    resolutionButton.addEventListener('click', () => {
+      modalOpenClose()
+    })
+
+    cssContent.addEventListener('click', () => {
+      cssContent.style.display = 'none'
+    })
+
+    closeModal.addEventListener('click', () => {
+      modalOpenClose()
+    })
+
+    htmlButton.addEventListener('click', () => {
+      html.style.display = 'block'
+    })
+
+    closeHTML.addEventListener('click', () => {
+      html.style.display = 'none'
+    })
+
+    cssButton.addEventListener('click', () => {
+      css.style.display = 'block'
+    })
+  </script>
+
+</body>
+</html>
